@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-learning Rust</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #fcfcfc;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .foot {
+            background-color: #f0f0f0;
+            padding: 0.1rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .topbar {
+            display: flex;
+            background-color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            align-items: center;
+            z-index: 1100;
+        }
+
+        .burger {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            position: relative;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f0f0f0;
+            padding: 1rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+
+        .sidebar.show {
+            transform: translateX(0);
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chapter-list li {
+            margin: 0.5rem 0;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            min-width: 0;
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            border: 1px solid #ccc;
+            margin: 0 3rem 3rem 3rem;
+            background-color: #eee;
+            position: relative;
+            padding-top: 56.25%; /* 16:9 poměr */
+            width: auto;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .additional-info {
+            font-size: 1rem;
+            color: #333;
+            margin: 0 1rem;
+        }
+
+        .title_text {
+                font-size: 2rem;
+                margin: 0;
+                padding-left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .main {
+                width: 100%;
+            }
+
+            .topbar {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="burger" onclick="toggleSidebar()">&#9776;</div>
+        <div class="title_text">Rust E-learning 🦀</div>
+    </div>
+    <div class="container">
+        <aside class="sidebar hidden" id="sidebar">
+            <h2>Seznam kapitol:</h2>
+            <ul class="chapter-list">
+                <li>1</li>
+                <li>1.1</li>
+                <li>1.2</li>
+                <li>1.2.1</li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <div class="chapter-title">Název kapitoly</div>
+            <div class="video-container">
+                <video controls>
+                    <source src="sample-video.mp4" type="video/mp4">
+                    Váš prohlížeč nepodporuje přehrávání videa.
+                </video>
+            </div>
+            <div class="additional-info">
+                Dodatečné informace, jako například časová razítka videa
+            </div>
+        </main>
+    </div>
+    <div class="foot">
+        <p>Vytvořil s láskou: Petr Novák</p>
+        <p>© 2023 E-learning Rust</p>
+        <p>Všechna práva vyhrazena</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>
