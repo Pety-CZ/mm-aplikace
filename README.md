@@ -1,0 +1,1 @@
+Aplikace pro splnění předmět "Tvorba a design multimediálních aplikací"

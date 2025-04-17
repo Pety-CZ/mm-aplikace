@@ -1,0 +1,147 @@
+ * {
+     box-sizing: border-box;
+ }
+
+ html,
+ body {
+     margin: 0;
+     font-family: Arial, sans-serif;
+     min-height: 100vh;
+     width: 100%;
+     background-color: #fcfcfc;
+ }
+
+ body {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .foot {
+     background-color: #f0f0f0;
+     padding: 0.1rem;
+     text-align: center;
+     font-size: 0.75rem;
+     color: #555;
+     position: relative;
+     bottom: 0;
+     width: 100%;
+ }
+
+ .topbar {
+     display: flex;
+     background-color: #f0f0f0;
+     padding: 0.5rem 1rem;
+     align-items: center;
+     z-index: 1100;
+ }
+
+ .burger {
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+
+ .container {
+     display: flex;
+     flex: 1;
+     width: 100%;
+     position: relative;
+ }
+
+ .sidebar {
+     width: 225px;
+     background-color: #f0f0f0;
+     padding: 1rem;
+     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease-in-out;
+     z-index: 1000;
+ }
+
+ .sidebar.hidden {
+     transform: translateX(-100%);
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+ }
+
+ .sidebar.show {
+     transform: translateX(0);
+ }
+
+ .sidebar h2 {
+     font-size: 1.2rem;
+     margin-bottom: 1rem;
+ }
+
+ .chapter-list {
+     list-style: none;
+     padding: 0;
+ }
+
+ .chapter-list li {
+     margin: 0.5rem 0;
+ }
+
+ .main {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     padding: 1rem;
+     min-width: 0;
+ }
+
+ .chapter-title {
+     font-size: 1.5rem;
+     margin-bottom: 1rem;
+ }
+
+ .video-container {
+     border: 1px solid #ccc;
+     margin: 0 3rem 3rem 3rem;
+     background-color: #eee;
+     position: relative;
+     padding-top: 56.25%;
+     /* 16:9 poměr */
+     width: auto;
+     height: 0;
+     overflow: hidden;
+ }
+
+ .video-container video {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ .additional-info {
+     font-size: 1rem;
+     color: #333;
+     margin: 0 3rem;
+ }
+
+ .title_text {
+     font-size: 2rem;
+     margin: 0;
+     padding-left: 2rem;
+ }
+
+ @media (max-width: 768px) {
+     .container {
+         flex-direction: column;
+     }
+
+     .main {
+         width: 100%;
+     }
+
+     .topbar {
+         justify-content: flex-start;
+     }
+ }
+
+ .center{
+    margin-left: auto;
+    margin-right: auto;
+ }
