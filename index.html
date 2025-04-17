@@ -21,11 +21,10 @@
         <script src="scripts/chapter-list.js"  onload="insertChapters()"></script>
 
         <main class="main">
-            <div class="chapter-title center">Název kapitoly</div>
+            <div class="chapter-title center" id="chapter-title"">Název kapitoly</div>
             <div class="video-container">
                 <video controls>
-                    <!-- <source src="video/sample-video2.mkv" id="video" onload="setVideo()"> -->
-                    Váš prohlížeč nepodporuje přehrávání videa.
+                    Váš prohlížeč nepodporuje přehrávání videa nebo nemáte povolený JavaScript.
                 </video>
             </div>
             <script src="scripts/video.js" defer></script>
@@ -36,13 +35,13 @@
         </main>
     </div>
 
-    <div id="foot" class="foot"></div>
+    <div id="foot" class="foot">
+        <script src="scripts/foot.js" onload="createFoot()"></script>
+    </div>
 
 
 
 </body>
-    <script src="scripts/foot.js" onload="createFoot()"></script>
-
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -50,5 +49,7 @@
             sidebar.classList.toggle('show');
         }
     </script>
+
+
 
 </html>

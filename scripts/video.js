@@ -16,4 +16,3 @@ function insertVideo() {
     videoElement.appendChild(source);
     videoElement.load();
 }
-
