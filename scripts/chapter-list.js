@@ -6,6 +6,7 @@ var chapters = [
     [4, "Závěr"]
 ];
 
+
 function insertChapters(){
     var chaptersList = document.getElementById('chapter-list');
 
@@ -16,7 +17,7 @@ function insertChapters(){
     chaptersList.innerHTML = chaptersData;
 }
 
-
+// V budoucnu --> kapitola se při načtení stránky natáhne z localStorage/DB 
 function loadChapter(chapter){
     console.log(`Loading chapter ${chapter} ...`);
 
@@ -24,5 +25,6 @@ function loadChapter(chapter){
     let chapterTitle = document.getElementById('chapter-title');
     chapterTitle.innerHTML = title;
 
-    let videoElement = document.querySelector('video');
+    let video = "${chapter}.mp4";
+    loadVideo(chapter);
 }

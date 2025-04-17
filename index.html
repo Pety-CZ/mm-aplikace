@@ -14,31 +14,33 @@
         <div class="title_text">Rust E-learning 🦀</div>
     </div>
     <div class="container">
-        <aside class="sidebar hidden" id="sidebar">
+        <aside class="sidebar show" id="sidebar">
             <h2 class="center">Seznam kapitol:</h2>
             <ul class="chapter-list" id="chapter-list"></ul>
         </aside>
-        <script src="scripts/chapter-list.js"  onload="insertChapters()"></script>
-
+        <!-- <script src="scripts/chapter-list.js" onload="insertChapters()"></script> -->
+        
         <main class="main">
             <div class="chapter-title center" id="chapter-title"">Název kapitoly</div>
             <div class="video-container">
-                <video controls>
+                <video id="video" controls>
+                    <source id="video-source" src=""  type="video/mp4">
                     Váš prohlížeč nepodporuje přehrávání videa nebo nemáte povolený JavaScript.
                 </video>
             </div>
-            <script src="scripts/video.js" defer></script>
             
             <div class="additional-info">
                 Info / kvíz / timestampy
             </div>
         </main>
     </div>
-
+    
     <div id="foot" class="foot">
         <script src="scripts/foot.js" onload="createFoot()"></script>
     </div>
-
+    
+    <script src="scripts/video.js" defer></script>
+    <script src="scripts/chapter-list.js" onload="insertChapters()""></script>
 
 
 </body>
