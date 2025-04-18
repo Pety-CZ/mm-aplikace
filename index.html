@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>E-learning Rust</title>
 </head>
+
 <body>
     <div class="topbar">
         <div class="burger" onclick="toggleSidebar()">🍔</div>
@@ -15,32 +16,35 @@
     </div>
     <div class="container">
         <aside class="sidebar show" id="sidebar">
-            <h2 class="center">Seznam kapitol:</h2>
-            <ul class="chapter-list" id="chapter-list"></ul>
+			<h2 class="center">Seznam kapitol:</h2>
+			<ul class="chapter-list" id="chapter-list"></ul>
         </aside>
         <!-- <script src="scripts/chapter-list.js" onload="insertChapters()"></script> -->
-        
-        <main class="main">
+
+		<main class="main">
             <div class="chapter-title center" id="chapter-title"">Název kapitoly</div>
-            <div class="video-container">
+            <div class=" video-container">
                 <video id="video" controls>
-                    <source id="video-source" src=""  type="video/mp4">
+                    <source id="video-source" src="" type="video/mp4">
                     Váš prohlížeč nepodporuje přehrávání videa nebo nemáte povolený JavaScript.
                 </video>
             </div>
-            
+
             <div class="additional-info">
                 Info / kvíz / timestampy
             </div>
         </main>
     </div>
-    
+
     <div id="foot" class="foot">
-        <script src="scripts/foot.js" onload="createFoot()"></script>
+        <!-- <script src="scripts/foot.js" onload="createFoot()"></script> -->
+        <script src="scripts/foot.js"></script>
     </div>
-    
-    <script src="scripts/video.js" defer></script>
-    <script src="scripts/chapter-list.js" onload="insertChapters()""></script>
+
+    <script src="scripts/video.js"></script>
+    <!-- <script src="scripts/chapters.js" onload="insertChapters()""></script> -->
+    <script src="scripts/chapters.js"></script>
+    <script src="scripts/engine.js" onload="init()"></script>
 
 
 </body>

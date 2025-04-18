@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', insertVideo);
+// document.addEventListener('DOMContentLoaded', insertVideo);
 
 // V budoucnu se insertVideo() a loadVideo() spojí do jedné funkce
 // a bude se volat při načtení stránky (např. z localStorage/DB) nebo
@@ -22,9 +22,9 @@ function insertVideo() {
 function loadVideo(chapter) {
     const videoFile = `video/${chapter}.mp4`;
     console.log(`Loading video: ${videoFile}`);
-    
+
     const source = document.getElementById('video-source');
-    
+
     source.src = videoFile;
     source.type = "video/mp4";
 
