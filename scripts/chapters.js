@@ -47,4 +47,12 @@ function setChapter(chapter) {
     let video = "${chapter}.mp4";
     loadVideo(chapter);
 
+    loadChapterQuiz(chapter);
+
+}
+
+function loadChapterQuiz(chapterId) {
+    const script = document.createElement('script');
+    script.src = `video/${chapterId}.js`;
+    document.body.appendChild(script);
 }

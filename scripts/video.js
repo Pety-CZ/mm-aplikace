@@ -36,8 +36,24 @@ function loadVideo(chapter) {
     loadQuiz(chapter);
     console.log(`Sent requset to load  ${chapter} quiz.`);
 */
+
+/*
     quizJS = document.getElementById('video-quiz');
     quizJS.src = `video/${chapter}.js`;
     quizJS.type = "text/javascript";
-    quizJS.onload = () => alert("Quiz JS loaded successfully.");
+    quizJS.onload = () => alert("Quiz JS loaded successfully."); */
+
+
 }
+/*
+video.addEventListener('timeupdate', () => {
+    let quizShown = false;
+    console.log("Quiz shown: " + quizShown);
+    if (video.currentTime >= 3 && quizShown == false && typeof loadQuizForChapter1 === 'function') {
+        video.pause();
+        loadQuizForChapter1();
+        quizShown = true;
+    }
+});
+
+*/
