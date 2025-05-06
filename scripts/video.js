@@ -31,5 +31,13 @@ function loadVideo(chapter) {
     source.type = "video/mp4";
 
     document.getElementById('video').load();
-
+    
+    /*
+    loadQuiz(chapter);
+    console.log(`Sent requset to load  ${chapter} quiz.`);
+*/
+    quizJS = document.getElementById('video-quiz');
+    quizJS.src = `video/${chapter}.js`;
+    quizJS.type = "text/javascript";
+    quizJS.onload = () => alert("Quiz JS loaded successfully.");
 }

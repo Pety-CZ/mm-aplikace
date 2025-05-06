@@ -4,7 +4,7 @@
         "title": "Úvod",
         "quizzes": [
             {
-                "time": 300,
+                "time": 3,
                 "quizHtml": "<p>Je Rust kompilovaný jazyk?</p><ul><li><input type='radio' name='q1' value='a'> A) ANO</li><li><input type='radio' name='q1' value='b'> B) NE</li></ul>",
                 "correctAnswers": {
                     "q1": "a"
