@@ -3,6 +3,8 @@
 // V budoucnu se insertVideo() a loadVideo() spojí do jedné funkce
 // a bude se volat při načtení stránky (např. z localStorage/DB) nebo
 // při kliknutí na kapitolu v seznamu
+// nebo taky ne :)
+
 
 function insertVideo() {
     const videoElement = document.querySelector('video');
