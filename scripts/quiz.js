@@ -1,58 +1,49 @@
 const quizContainer = document.getElementById("quiz-container");
+let questions = [];
 
-function loadQuiz(chapter) {
-    const quiz_path = 'video/chapter_interactive.json';
-    fetch(quiz_path)
-        .then(response => response.json())
-        .then(data => {
-            const chapterData = data.find(c => c.chapter === chapter);
-            if (!chapterData) {
-                console.warn("No quiz data for chapter", chapter);
-                return;
-            }
 
-            videoData = chapterData;
-            displayedQuizzes.clear();
+function setQuiz(chapter) {
+    console.log(`Loading quiz for chapter ${chapter} ...`);
+    // var questions = getQuestions();
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = "";
 
-            const video = document.querySelector('video');
-            video.addEventListener('timeupdate', onTimeUpdate);
-        })
-        .catch(error => console.error('Error loading quiz:', error));
+    questions = typeof getQuestions === 'function'
+        ? getQuestions()
+        : [];
+    // console.log("Questions: " + questions);
+
 }
-
-
-
-function onTimeUpdate(){
-    let video = document.querySelector('video');
+function attachListener() {
+    console.log("attachListener called");
+    const video = document.querySelector('video');
+    video.removeEventListener('timeupdate', timeUpdate);
+    video.addEventListener('timeupdate', timeUpdate);
+}
+function timeUpdate() {
+    console.log("timeUpdate called");
+    const video = document.querySelector('video');
     const currentTime = Math.floor(video.currentTime);
-    videoData.video.quizzes.forEach((quiz, index) => {
-        if (currentTime >= quiz.time && !displayedQuizzes.has(index)) {
+    questions.forEach((question, index) => {
+        if ( question[0] == false && currentTime >= question[1] ) {
             video.pause();
-            quizContainer.innerHTML = quiz.quizHtml + `<button onclick="checkAnswers(${index})">Odeslat</button>`;
-            quizContainer.style.display = 'block';
-            displayedQuizzes.add(index);
+            loadQuizForChapter(index);
         }
     });
 }
+function loadQuizForChapter(index) {
+    document.getElementById('quiz-container').innerHTML = questions[index][2] + `<button onclick="checkQuestion(${index})">Odeslat</button>`;
+}
+function checkQuestion(index) {
+    let answer = document.querySelector(`input[name="q${index + 1}"]:checked`);
 
-
-
-function checkAnswers(index) {
-    const quiz = videoData.quizzes[index];
-    const correctAnswers = quiz.correctAnswers;
-    let allCorrect = true;
-
-    for (let q in correctAnswers) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (!selected || selected.value !== correctAnswers[q]) {
-            allCorrect = false;
-        }
-    }
-
-    alert(allCorrect ? "Správně!" : "Špatně. Zkus to znovu.");
-    if (allCorrect) {
-        quizContainer.style.display = 'none';
-        document.querySelector('video').play();
+    let quiz = document.getElementById('quiz-container');
+    loadQuizForChapter(index);
+    if (answer && answer.value == questions[index][3]) {
+        document.getElementById('video').play();
+        quiz.innerHTML = "<p style='color: green;'>Správně!</p>" + quiz.innerHTML;
+        questions[index][0] = true;
+    } else {
+        quiz.innerHTML = "<p style='color: red;'>Špatně!</p>" + quiz.innerHTML;
     }
 }
-

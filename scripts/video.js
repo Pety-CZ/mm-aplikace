@@ -4,7 +4,7 @@
 // a bude se volat při načtení stránky (např. z localStorage/DB) nebo
 // při kliknutí na kapitolu v seznamu
 // nebo taky ne :)
-
+let video = document.querySelector('video');
 
 function insertVideo() {
     const videoElement = document.querySelector('video');
@@ -14,7 +14,7 @@ function insertVideo() {
         type: "video/mp4"
     };
 
-    source = document.getElementById('video-source');
+    const source = document.getElementById('video-source');
     source.src = videoData.src;
     source.type = videoData.type;
 
@@ -31,29 +31,4 @@ function loadVideo(chapter) {
     source.type = "video/mp4";
 
     document.getElementById('video').load();
-    
-    /*
-    loadQuiz(chapter);
-    console.log(`Sent requset to load  ${chapter} quiz.`);
-*/
-
-/*
-    quizJS = document.getElementById('video-quiz');
-    quizJS.src = `video/${chapter}.js`;
-    quizJS.type = "text/javascript";
-    quizJS.onload = () => alert("Quiz JS loaded successfully."); */
-
-
 }
-/*
-video.addEventListener('timeupdate', () => {
-    let quizShown = false;
-    console.log("Quiz shown: " + quizShown);
-    if (video.currentTime >= 3 && quizShown == false && typeof loadQuizForChapter1 === 'function') {
-        video.pause();
-        loadQuizForChapter1();
-        quizShown = true;
-    }
-});
-
-*/

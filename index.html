@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>E-learning Rust</title>
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
 </head>
 
 <body>
@@ -22,8 +23,9 @@
         <!-- <script src="scripts/chapter-list.js" onload="insertChapters()"></script> -->
 
 		<main class="main">
-            <div class="chapter-title center" id="chapter-title"">Název kapitoly</div>
-            <div class=" video-container">
+            <div class="chapter-title center" id="chapter-title">Název kapitoly</div>
+            <div class="chapter-info additional-info" id="chapter-info">Shrnutí kapitoly</div>
+            <div class="video-container">
                 <video id="video" controls>
                     <source id="video-source" src="" type="video/mp4">
                     Váš prohlížeč nepodporuje přehrávání videa nebo nemáte povolený JavaScript.
@@ -41,14 +43,16 @@
     </div>
 
     <div id="foot" class="foot">
-        <script src="scripts/foot.js"></script>
+        <script src="scripts/foot.js" onload="createFoot()"></script>
     </div>
 
     <script src="scripts/video.js"></script>
     <script src="scripts/chapters.js"></script>
-    <script id="video-quiz" src=""></script>
-    <!-- <script src="scripts/quiz.js"></script> -->
-    <script src="scripts/engine.js" onload="init()"></script>
+    <!-- <script id="video-quiz" src="video/1.js"></script> -->
+    <script src="scripts/quiz.js"></script>
+    <!-- <script src="scripts/engine.js" onload="init()"></script> -->
+    <script src="scripts/engine.js" defer"></script>
+    
 
 
 </body>
