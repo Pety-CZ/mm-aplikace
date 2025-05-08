@@ -1,7 +1,4 @@
 (function (){
-    
-    /*let video = document.querySelector('video');*/
-
     var questions = [
         [false,
             2,

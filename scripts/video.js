@@ -6,20 +6,20 @@
 // nebo taky ne :)
 let video = document.querySelector('video');
 
-function insertVideo() {
-    const videoElement = document.querySelector('video');
+// function insertVideo() {
+//     const videoElement = document.querySelector('video');
 
-    const videoData = {
-        src: "video/sample-video.mp4",
-        type: "video/mp4"
-    };
+//     const videoData = {
+//         src: "video/sample-video.mp4",
+//         type: "video/mp4"
+//     };
 
-    const source = document.getElementById('video-source');
-    source.src = videoData.src;
-    source.type = videoData.type;
+//     const source = document.getElementById('video-source');
+//     source.src = videoData.src;
+//     source.type = videoData.type;
 
-    videoElement.load();
-}
+//     videoElement.load();
+// }
 
 function loadVideo(chapter) {
     const videoFile = `video/${chapter}.mp4`;

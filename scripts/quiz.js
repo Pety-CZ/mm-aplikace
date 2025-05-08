@@ -1,12 +1,12 @@
 const quizContainer = document.getElementById("quiz-container");
 let questions = [];
 
+let quiz = document.getElementById('quiz');
+let quiz_result = document.getElementById('quiz-result');
 
 function setQuiz(chapter) {
     console.log(`Loading quiz for chapter ${chapter} ...`);
-    // var questions = getQuestions();
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = "";
 
     questions = typeof getQuestions === 'function'
         ? getQuestions()
@@ -32,18 +32,18 @@ function timeUpdate() {
     });
 }
 function loadQuizForChapter(index) {
-    document.getElementById('quiz-container').innerHTML = questions[index][2] + `<button onclick="checkQuestion(${index})">Odeslat</button>`;
+    document.getElementById('quiz').innerHTML = questions[index][2] + `<button onclick="checkQuestion(${index})">Odeslat</button>`;
+    quiz_result.innerHTML = " ";
 }
 function checkQuestion(index) {
     let answer = document.querySelector(`input[name="q${index + 1}"]:checked`);
 
-    let quiz = document.getElementById('quiz-container');
     loadQuizForChapter(index);
     if (answer && answer.value == questions[index][3]) {
         document.getElementById('video').play();
-        quiz.innerHTML = "<p style='color: green;'>Správně!</p>" + quiz.innerHTML;
+        quiz_result.innerHTML = "<p style='color: green;'>Správně!</p>";
         questions[index][0] = true;
     } else {
-        quiz.innerHTML = "<p style='color: red;'>Špatně!</p>" + quiz.innerHTML;
+        quiz_result.innerHTML = "<p style='color: red;'>Špatně!</p>";
     }
 }
