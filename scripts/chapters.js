@@ -68,7 +68,8 @@ function loadQuiz(chapterId) {
     const script = document.createElement('script');
     script.id = 'video-quiz';
     // script.src = "video/" + chapterId + ".js";
-    script.src = `video/${chapterId}.js?t=${Date.now()}`;   // cache‑buster
+    // script.src = `video/${chapterId}.js?t=${Date.now()}`;   // cache‑buster
+    script.src = `chapter/${chapterId}/chapter_data.js?t=${Date.now()}`;   // cache‑buster
     
     
     script.onload = () => {

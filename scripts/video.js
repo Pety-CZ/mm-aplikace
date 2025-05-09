@@ -6,23 +6,8 @@
 // nebo taky ne :)
 let video = document.querySelector('video');
 
-// function insertVideo() {
-//     const videoElement = document.querySelector('video');
-
-//     const videoData = {
-//         src: "video/sample-video.mp4",
-//         type: "video/mp4"
-//     };
-
-//     const source = document.getElementById('video-source');
-//     source.src = videoData.src;
-//     source.type = videoData.type;
-
-//     videoElement.load();
-// }
-
 function loadVideo(chapter) {
-    const videoFile = `video/${chapter}.mp4`;
+    const videoFile = `chapter/${chapter}/video.mp4`;
     console.log(`Loading video: ${videoFile}`);
 
     const source = document.getElementById('video-source');
