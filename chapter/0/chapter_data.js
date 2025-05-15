@@ -1,22 +1,16 @@
 (function(){
-    const has_video = true;
-    const questions = [
-        [false,
-            17,
-            "<p>Jak se jmenuje moderátor kurzu?</p><ul><li><input type='radio' name='q1' value='a'> A) Petr</li><li><input type='radio' name='q1' value='b'> B) Karel</li><li><input type='radio' name='q1' value='c'> C) Pavel</li></ul>",
-            "a"
-        ],
-        [false,
-            84,
-            "<p>Používá Rust <strong>Garbage collector</strong>?</p><ul><li><input type='radio' name='q2' value='a'> A) ANO</li><li><input type='radio' name='q2' value='b'> B) NE</li></ul>",
-            "b"
-        ],
-    ];
+    const has_video = false;
+    const questions = false;;
     window.getQuestions = () => questions;
     const chapter_info = document.getElementById('chapter-info');
-    chapter_info.innerHTML = "<p>Tato úvodní kapitola popisuje jazyk Rust, jaké má výhody a kde se používá.</p>";
+    chapter_info.innerHTML = "<p><strong>Tip k úspěchu:</strong> Než se ponoříte do lekcí, ujistěte se, že ovládáte <em>základy angličtiny</em> (většina dokumentace a chybových hlášení je v AJ) a máte jistotu v běžném <em>ovládání počítače</em> – instalace programů, práce se soubory a používání příkazové řádky.<br>Díky tomu se budete moci plně soustředit na samotný obsah kurzu a získáte rychlejší pokrok.</p>";
+
 
     
+
+
+
+
 
 
 
@@ -38,11 +32,11 @@
         video_container.style.display = "none";
     }
 
-    if (!questions) {
+    if (!questions){
         const quiz_container = document.getElementById('quiz-container');
         quiz_container.hidden = true;
         quiz_container.style.display = "none";
-    }
+    } 
     else {
         const quiz_container = document.getElementById('quiz-container');
         quiz_container.hidden = false;

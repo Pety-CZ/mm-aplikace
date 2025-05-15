@@ -1,9 +1,11 @@
 var chapters = [
+    [0, "Předpoklady"],
     [1, "Úvod"],
-    [1.1, "Úvod do programování"],
-    [2, "Základy"],
-    [3, "Pokročilé techniky"],
-    [4, "Závěr"]
+    [2, "Nastavení programovacího prostředí"],
+    [3, "Proměnné"],
+    [3.1, "Datové typy - teorie"],
+    [3.2, "Datové typy - praxe"],
+    [4, "Řízení toku programu"]
 ];
 
 
@@ -30,7 +32,7 @@ function loadChapter() {
     });
     if (!found) {
         console.log("No chapter found in localStorage.");
-        setChapter(1);
+        setChapter(0);
     }
     
     document.getElementById('quiz-container').classList.remove('active');
@@ -45,6 +47,9 @@ function setChapter(chapter) {
     let title = `${chapter} - ${chapters.find(item => item[0] == chapter)[1]}`;
     let chapterTitle = document.getElementById('chapter-title');
     chapterTitle.innerHTML = title;
+
+    let info = document.getElementById('extra-info');
+    info.innerHTML = "";
     
     loadVideo(chapter);
     
@@ -70,8 +75,7 @@ function loadQuiz(chapterId) {
 
     const script = document.createElement('script');
     script.id = 'video-quiz';
-    // script.src = "video/" + chapterId + ".js";
-    // script.src = `video/${chapterId}.js?t=${Date.now()}`;   // cache‑buster
+    // script.src = "chapter/" + chapterId + "/chapter_date.js";
     script.src = `chapter/${chapterId}/chapter_data.js?t=${Date.now()}`;   // cache‑buster
     
     

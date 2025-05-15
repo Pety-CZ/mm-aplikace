@@ -19,8 +19,39 @@
         ],
     ];
     window.getQuestions = () => questions;
+    const chapter_info = document.getElementById('chapter-info');
+    chapter_info.innerHTML = "<p>V kapitole je popsán postup instalace jazyka Rust, prostředí pro psaní zdrojového kódu a vytvoření jednoduchého projektu.</p>";
 
-    var chapter_info = document.getElementById('chapter-info');
-    chapter_info.innerHTML = "<p>V této kapitole se dozvíte, co je to Rust a jak funguje.</p>";
+
+
+
+
+
+
+
+
+
+
+
+
+    const video_container = document.getElementById('video-container');
+    if (has_video) {
+        video_container.hidden = false;
+        video_container.style.display = "block";
+    } else {
+        video_container.hidden = true;
+        video_container.style.display = "none";
+    }
+
+    if (!questions) {
+        const quiz_container = document.getElementById('quiz-container');
+        quiz_container.hidden = true;
+        quiz_container.style.display = "none";
+    }
+    else {
+        const quiz_container = document.getElementById('quiz-container');
+        quiz_container.hidden = false;
+        quiz_container.style.display = "block";
+    }
 })
-();
+    ();

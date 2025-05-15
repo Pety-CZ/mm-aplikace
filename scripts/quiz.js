@@ -16,13 +16,13 @@ function setQuiz(chapter) {
 
 }
 function attachListener() {
-    console.log("attachListener called");
+    // console.log("attachListener called");
     const video = document.querySelector('video');
     video.removeEventListener('timeupdate', timeUpdate);
     video.addEventListener('timeupdate', timeUpdate);
 }
 function timeUpdate() {
-    console.log("timeUpdate called");
+    // console.log("timeUpdate called");
     const video = document.querySelector('video');
     const currentTime = Math.floor(video.currentTime);
     questions.forEach((question, index) => {
@@ -31,6 +31,12 @@ function timeUpdate() {
             loadQuizForChapter(index);
         }
     });
+    const questionsAnsweredSuccesfully = questions.every(q => q[0] === true);
+    if (questionsAnsweredSuccesfully) {
+        video.removeEventListener('timeupdate', timeUpdate);
+        quiz_result.innerHTML = "<p style='color: green;'>Gratuluji! Splnili jste všechny úkoly!</p>";
+        video.play();
+    }
 }
 function loadQuizForChapter(index) {
     document.getElementById('quiz').innerHTML = questions[index][2] + `<button onclick="checkQuestion(${index})">Odeslat</button>`;
@@ -44,15 +50,14 @@ function checkQuestion(index) {
     if (answer && answer.value == questions[index][3]) {
         document.getElementById('video').play();
         quiz_result.innerHTML = "<p style='color: green;'>Správně!</p>";
-<<<<<<< HEAD
-=======
         // let audio = new Audio('../yes.mp3');
         // audio.play();
->>>>>>> e7f8f72 (Pravděpodobně finální produkt)
         questions[index][0] = true;
         document.getElementById('quiz-container').classList.remove('active');
     } else {
         quiz_result.innerHTML = "<p style='color: red;'>Špatně!</p>";
+        let audio = new Audio('../no.mp3');
+        audio.play();
     }
 }
 
