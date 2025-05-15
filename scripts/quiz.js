@@ -7,6 +7,7 @@ let quiz_result = document.getElementById('quiz-result');
 function setQuiz(chapter) {
     console.log(`Loading quiz for chapter ${chapter} ...`);
     const quizContainer = document.getElementById('quiz-container');
+    hideQuiz();
 
     questions = typeof getQuestions === 'function'
         ? getQuestions()
@@ -34,6 +35,7 @@ function timeUpdate() {
 function loadQuizForChapter(index) {
     document.getElementById('quiz').innerHTML = questions[index][2] + `<button onclick="checkQuestion(${index})">Odeslat</button>`;
     quiz_result.innerHTML = " ";
+    document.getElementById('quiz-container').classList.add('active');
 }
 function checkQuestion(index) {
     let answer = document.querySelector(`input[name="q${index + 1}"]:checked`);
@@ -43,7 +45,17 @@ function checkQuestion(index) {
         document.getElementById('video').play();
         quiz_result.innerHTML = "<p style='color: green;'>Správně!</p>";
         questions[index][0] = true;
+        document.getElementById('quiz-container').classList.remove('active');
     } else {
         quiz_result.innerHTML = "<p style='color: red;'>Špatně!</p>";
     }
+}
+
+function showQuiz(){
+    console.log("showQuiz called");
+    document.getElementById('quiz-container').classList.add('active');
+}
+function hideQuiz(){
+    console.log("hideQuiz called");
+    document.getElementById('quiz-container').classList.remove('active');
 }

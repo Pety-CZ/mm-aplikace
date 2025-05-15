@@ -32,6 +32,9 @@ function loadChapter() {
         console.log("No chapter found in localStorage.");
         setChapter(1);
     }
+    
+    document.getElementById('quiz-container').classList.remove('active');
+    // hideQuiz();
 }
 function setChapter(chapter) {
     console.log(`Loading chapter ${chapter} ...`);
