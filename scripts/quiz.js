@@ -44,6 +44,11 @@ function checkQuestion(index) {
     if (answer && answer.value == questions[index][3]) {
         document.getElementById('video').play();
         quiz_result.innerHTML = "<p style='color: green;'>Správně!</p>";
+<<<<<<< HEAD
+=======
+        // let audio = new Audio('../yes.mp3');
+        // audio.play();
+>>>>>>> e7f8f72 (Pravděpodobně finální produkt)
         questions[index][0] = true;
         document.getElementById('quiz-container').classList.remove('active');
     } else {
